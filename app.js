@@ -78,12 +78,16 @@ const scrapeGoogle = async (page, term, city, state, site) => {
 
     console.log(`Página ${start / 10 + 1} processada. Emails encontrados: ${emails.length}`);
 
-   for (const email of uniqueEmails) {
-      await saveResult('emails', { email });
-    }
-
-    for (const site of uniqueSites) {
-      await saveResult('sites', { site });
+    try{
+      for (const email of uniqueEmails) {
+        await saveResult('emails', { email });
+      }
+  
+      for (const site of uniqueSites) {
+        await saveResult('sites', { site });
+      }
+    }catch(err){
+      console.log(err.data.errors)
     }
 
     allEmails = allEmails.concat(uniqueEmails);
