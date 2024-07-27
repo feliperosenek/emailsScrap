@@ -31,7 +31,7 @@ const saveResult = async (endpoint, data) => {
         'Content-Type': 'application/json'
       }
     });
-  } catch (error) {s
+  } catch (error) {
     console.error(error.data.errors);
   }
 };
