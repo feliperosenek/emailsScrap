@@ -128,6 +128,6 @@ app.get('/start-scraper', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Scraper API listening at http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Scraper API listening at http://localhost:${process.env.PORT}`);
 });
