@@ -31,8 +31,8 @@ const saveResult = async (endpoint, data) => {
         'Content-Type': 'application/json'
       }
     });
-  } catch (error) {
-    console.error(`Error saving ${endpoint}:`, error);
+  } catch (error) {s
+    console.error(error.data.errors);
   }
 };
 
@@ -78,7 +78,6 @@ const scrapeGoogle = async (page, term, city, state, site) => {
 
     console.log(`Página ${start / 10 + 1} processada. Emails encontrados: ${emails.length}`);
 
-    try{
       for (const email of uniqueEmails) {
         await saveResult('emails', { email });
       }
@@ -86,9 +85,6 @@ const scrapeGoogle = async (page, term, city, state, site) => {
       for (const site of uniqueSites) {
         await saveResult('sites', { site });
       }
-    }catch(err){
-      console.log(err.data.errors)
-    }
 
     allEmails = allEmails.concat(uniqueEmails);
     allSites = allSites.concat(uniqueSites);
