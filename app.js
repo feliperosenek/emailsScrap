@@ -98,7 +98,7 @@ const scrapeGoogle = async (page, term, city, state, site) => {
 const main = async () => {
   const searchTerms = await getSearchTerms();
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
   const page = await browser.newPage();
