@@ -32,7 +32,7 @@ const saveResult = async (endpoint, data) => {
       }
     });
   } catch (error) {
-    console.error(error.data.errors);
+    console.error(error.response.data.errors);
   }
 };
 
