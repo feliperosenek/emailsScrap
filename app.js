@@ -122,7 +122,7 @@ const main = async () => {
   console.log('Todas as buscas foram concluídas. Navegador fechado.');
 };
 
-app.get('/start-scraper', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     await main();
     res.status(200).send('Scraping completed successfully');
