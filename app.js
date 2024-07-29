@@ -120,8 +120,8 @@ const main = async () => {
 
 app.get('/', async (req, res) => {
   try {
+        res.status(200).send('Scraping completed successfully');
     await main();
-    res.status(200).send('Scraping completed successfully');
   } catch (error) {
     console.error('Error running scraper:', error);
     res.status(500).send('Error running scraper');
