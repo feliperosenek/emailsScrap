@@ -11,7 +11,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 const getSearchTerms = async () => {
   try {
-    const response = await axios.get(`${DIRECTUS_API_URL}/items/termos_pesquisa?limit=3`, {
+    const response = await axios.get(`${DIRECTUS_API_URL}/items/termos_pesquisa?limit=3&&sort[]=-sort`, {
       headers: {
         Authorization: `Bearer ${DIRECTUS_API_KEY}`
       }
